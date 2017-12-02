@@ -43,7 +43,7 @@
 
   .evidence-container{
     padding-left: 10px;
-    top: 300px;
+    top: 350px;
     position: relative;
 }
 
@@ -184,7 +184,11 @@
     margin-left: 10px;
 }
 
-
+.submit_button{
+    float: right;
+    color: white;
+    background: rgb(106, 60, 177);
+}
 /*.list-items.logout_tab{
     z-index: 1;
     position: absolute;

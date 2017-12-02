@@ -55,8 +55,6 @@
                 </mat-form-field>
                 <mat-icon class="loc_icon"> add_location </mat-icon> -->
 <!--             </button> -->
-            
-           
         </mat-toolbar>  
         <mat-toolbar  class="thirdnav">
            
@@ -100,12 +98,15 @@
                 <textarea matInput placeholder="Enter names of witnesses (if any)" matTextareaAutosize matAutosizeMinRows="2"
                             matAutosizeMaxRows="5"></textarea>
              </mat-form-field>
+             <div>
+                <input type="submit" class= "submit_button btn mat-raised-button" value="DONE" (click)="addNewEvidence()" mat-align="center">
+            </div>
         </div>
 
-
+<!-- 
         <div class="evidence-container">
             <new-evidence></new-evidence>
-        </div> 
+        </div>  -->
 
 
         
