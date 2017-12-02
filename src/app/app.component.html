@@ -28,34 +28,32 @@
       <mat-sidenav-content >
         <mat-toolbar class="example-toolbar menu-bar">
         <!--     <button mat-button class="center"> -->
-                <span>
+                <div>
                 <mat-form-field class="date_input example-full-width center">
                     <input class="text_input" matInput [matDatepickerFilter]="myFilter" [matDatepicker]="picker" placeholder="When did it happen?">
                     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                     <mat-datepicker #picker></mat-datepicker>
                     </mat-form-field>
-                </span>
+                </div>
                 <!--  <mat-icon class="menu_icon"> expand_more </mat-icon> -->
 
 <!--             </button> -->
-
-        
+            <div class="loc_class">
+            <mat-form-field class="location_input" floatPlaceholder="never">
+                <textarea matInput class="text_input" placeholder="Where did it happen?"></textarea>
+            </mat-form-field>
+             <mat-icon class="loc_icon"> add_location </mat-icon>
+            </div>
           <!--   <button class="center" mat-button [matMenuTriggerFor]="menu"> -->
-                <mat-form-field class="text_input location_input center">
-                    <mat-select class="text_input" placeholder="Where did it happen?" >
+<!--                 <mat-form-field class="text_input location_input center">
+                    <mat-select class="text_input" placeholder="Where did it happen?">
                         <mat-option value="option">Home</mat-option>
                         <mat-option value="option">Work</mat-option>
                         <mat-option value="option">Online</mat-option>
-                        <mat-option value="option"> 
-                            <mat-form-field class="example-full-width">
-                                <textarea matInput placeholder="Other"></textarea>
-                            </mat-form-field>
-                        </mat-option>
-                        
-                </mat-select>
-                    
+                        <mat-option value="option">Other</mat-option>                        
+                    </mat-select>
                 </mat-form-field>
-                <mat-icon class="loc_icon"> add_location </mat-icon>
+                <mat-icon class="loc_icon"> add_location </mat-icon> -->
 <!--             </button> -->
             
            
