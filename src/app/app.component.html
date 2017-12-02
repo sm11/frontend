@@ -1,0 +1,118 @@
+    <div class="body example-container" [class.example-is-mobile]="mobileQuery.matches">
+        <mat-toolbar class="example-toolbar top-toolbar">
+        <button class="burg" mat-icon-button (click)="snav.toggle()"><mat-icon>menu</mat-icon></button>
+            <h1 class="example-app-name">
+                {{title | uppercase }}
+            </h1> 
+            <button mat-icon-button  class="exit">
+                <span>EXIT</span>
+                <mat-icon> exit_to_app </mat-icon>
+            </button>
+        </mat-toolbar>  
+    
+ <!--    <div class="breaker">
+    </div> -->
+
+
+    <mat-sidenav-container class="example-sidenav-container cont" 
+                           [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
+      <mat-sidenav class="list-holder" #snav [mode]="mobileQuery.matches ? 'over' : 'side'"
+                   [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
+        <mat-nav-list>
+          <a mat-list-item class="list-items" routerLink="." *ngFor="let nav of fillerNav"><mat-icon class="nav_icon"> {{ nav.icon }} </mat-icon>{{nav.name}}</a>
+        </mat-nav-list>
+
+      </mat-sidenav>
+  
+      <mat-sidenav-content >
+        <mat-toolbar class="example-toolbar menu-bar">
+            
+            <button mat-button [matMenuTriggerFor]="menu" class="menutext center">
+                <span>When? </span>
+                    <mat-icon class="menu_icon"> today </mat-icon>
+                    <mat-icon class="menu_icon"> expand_more </mat-icon>
+               
+            </button>
+            <mat-menu class="dropdown" #menu="matMenu">
+                <button mat-menu-item>
+                    <mat-icon> dialpad </mat-icon>
+                    <span> Redial </span>
+                </button>
+                <button mat-menu-item disabled>
+                    <mat-icon> voicemail </mat-icon>
+                    <span> Check voicemail </span>
+                </button>
+                <button mat-menu-item>
+                    <mat-icon> notifications_off </mat-icon>
+                    <span> Disable alerts </span>
+                </button>
+            </mat-menu>
+       
+            <div class=centerpad>  
+            </div>
+
+        
+            <button class="center" mat-button [matMenuTriggerFor]="menu">
+                <span>Where? </span>
+                <mat-icon> add_location </mat-icon>
+                <mat-icon> expand_more </mat-icon>
+            </button>
+            <mat-menu class="dropdown" #menu="matMenu">
+                <button mat-menu-item>
+                    <mat-icon> dialpad </mat-icon>
+                    <span> Redial </span>
+                </button>
+                <button mat-menu-item disabled>
+                    <mat-icon> voicemail </mat-icon>
+                    <span> Check voicemail </span>
+                </button>
+                <button mat-menu-item>
+                    <mat-icon> notifications_off </mat-icon>
+                    <span> Disable alerts </span>
+                </button>
+            </mat-menu>
+           
+        </mat-toolbar>  
+        <mat-toolbar  color="white" class="thirdnav">
+           
+            <div class="center">
+                <button mat-button>
+                    <mat-icon> mic </mat-icon>
+                    <!-- <span> Microphone </span> -->
+                </button>
+            </div>
+
+         <div class="center">
+            <button mat-button>
+                    <mat-icon> photo_camera </mat-icon>
+                    <!-- <span> Camera </span> -->
+                </button>
+            </div>
+            <div class="center">
+                    <button mat-button>
+                        <mat-icon> photo_size_select_actual</mat-icon>
+                        <!-- <span> Upload Image </span> -->
+                    </button>
+                </div>
+
+             <div class="center">
+                <button mat-button>
+                        <mat-icon> ondemand_video </mat-icon>
+                       <!--  <span> Upload Video </span> -->
+                    </button>
+                </div>
+            
+        </mat-toolbar>
+        
+
+
+        <div class="evidence-container">
+            <new-evidence></new-evidence>
+        </div>
+      </mat-sidenav-content>
+    </mat-sidenav-container>
+
+
+<!-- <new-evidence></new-evidence> -->
+
+
