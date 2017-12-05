@@ -1,20 +1,20 @@
-<mat-toolbar class="example-toolbar menu-bar">
-  <div class="">
-    <div>
+<div class="example-toolbar menu-bar">
+    <mat-toolbar>
+      <div class="button-row">
+        <mat-form-field class="date_input example-full-width center">
+            <input class="text_input" matInput [matDatepickerFilter]="myFilter" [matDatepicker]="picker" type="date" [(ngModel)]="newEvidence.when" name="when" placeholder="When did it happen?">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+      </div>
 
-      <mat-form-field class="date_input example-full-width center">
-          <input class="text_input" matInput [matDatepickerFilter]="myFilter" [matDatepicker]="picker" type="date" [(ngModel)]="newEvidence.when" name="when" placeholder="When did it happen?">
-          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-          <mat-datepicker #picker></mat-datepicker>
-      </mat-form-field>
-
-      <div class="loc_class">
+      <div class="button-row">
         <mat-form-field class="location_input" floatPlaceholder="never">
             <textarea matInput class="text_input" [(ngModel)]="newEvidence.where" name="where" placeholder="Where did it happen?"></textarea>
         </mat-form-field>
-        <mat-icon class="loc_icon"> Add location </mat-icon>
+        <mat-icon>location_on</mat-icon>
       </div>
-    </div>
+    </mat-toolbar>
 
     <mat-toolbar class="thirdnav">
         <div class="button-row">
@@ -30,63 +30,52 @@
         </div>
 
         <div class="button-row">
-          <button mat-button color="accent" (click)="videoFileInput.click()"><mat-icon>ondemand_video</mat-icon></button> <input hidden type="file" accept="video/*" #videoFileInput (change)="selectFile($event, '/video')"/>
+          <button mat-button (click)="videoFileInput.click()"><mat-icon>ondemand_video</mat-icon></button> <input hidden type="file" accept="video/*" #videoFileInput (change)="selectFile($event, '/video')"/>
         </div>
     </mat-toolbar>
 
-    <div>
-      <textarea [(ngModel)]="newEvidence.what" name="what" placeholder="What happened?..."></textarea>
-    </div>
-
     <div class="entry_form">
         <mat-form-field class="form_field">
-                <textarea matInput  #input maxlength="200" class="form_text" placeholder="What happened?" matTextareaAutosize matAutosizeMinRows="2"
-                            matAutosizeMaxRows="5"></textarea>
-                <mat-hint align="end">{{input.value?.length || 0}}/200</mat-hint>
-             </mat-form-field>
+          <textarea matInput [(ngModel)]="newEvidence.what" name="what" #input maxlength="200" class="form_text" placeholder="What happened?" matTextareaAutosize matAutosizeMinRows="2"
+                      matAutosizeMaxRows="5"></textarea>
+          <mat-hint align="end">{{input.value?.length || 0}}/200</mat-hint>
+       </mat-form-field>
 
         <mat-form-field class="wit_field">
             <textarea matInput placeholder="Enter names of witnesses (if any)" matTextareaAutosize matAutosizeMinRows="2"
                         matAutosizeMaxRows="5"></textarea>
          </mat-form-field>
+
          <div>
             <input type="submit" class= "submit_button btn mat-raised-button" value="DONE" (click)="addNewEvidence()" mat-align="center">
         </div>
-
-        <div class="">
-          <button class="btn btn-default" style="color: red"><input type="file" style="display: none"
-            (change)="selectFile($event, '/images')" name="evidence_image">
-          </button>
-        </div>
     </div>
+</div>
 
-  </div>
-
-</mat-toolbar>
-
-<button (click)="toggleViewLog()">
-  <div *ngIf="!viewLog">{{ viewLogMessage }}</div>
-  <div *ngIf="viewLog">{{ hideLogMessage }}</div>
-</button>
+<div>
+  <button mat-button (click)="toggleViewLog()">
+    <div *ngIf="!viewLog"><mat-icon>chevron_right</mat-icon>{{ viewLogMessage }}</div>
+    <div *ngIf="viewLog"><mat-icon>keyboard_arrow_down</mat-icon>{{ hideLogMessage }}</div>
+  </button>
+</div>
 
 <!-- TODO: Put this in the Evidence Logs page -->
 <!-- <evidence-log></evidence-log> -->
 
 <div *ngIf="viewLog">
   <div *ngFor="let evidence of evidences | async">
-    <div *ngIf="evidence.display">
-      {{ evidence.when }} at {{ evidence.where }}
+    <mat-card *ngIf="evidence.display">
+      <mat-card-subtitle>{{ evidence.when | date }} at {{ evidence.where }}</mat-card-subtitle>
+      <mat-card-title>{{ evidence.what }}</mat-card-title>
       <!-- <button type="button" (click)="deleteEvidence(evidence)" name="button">X</button> -->
-      <br>
-      {{ evidence.what }}<br>
-
       <img src="{{ evidence.image }}" alt="" height="20" width="20" *ngIf="evidence.image">
       <audio *ngIf="evidence.audio" controls>
         <source src="{{ evidence.audio }}" type="audio/mp3">
       </audio>
-      <video *ngIf="evidence.video" width="100" height="100" controls>
+      <video *ngIf="evidence.video" width="50" height="50" controls>
         <source src="{{ evidence.video }}" type="video/mp4">
       </video>
-    </div>
+
+    </mat-card>
   </div>
 </div>

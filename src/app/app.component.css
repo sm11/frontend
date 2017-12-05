@@ -4,7 +4,7 @@
     bottom: 0;
     left: 0;
     right: 0;
-  }*/ 
+  }*/
 
   .example-is-mobile .example-toolbar {
     position: fixed;
@@ -13,14 +13,14 @@
     background-color: white;
     border-bottom-color: rgb(106, 60, 177);
   }
-  
+
   h1.example-app-name {
     color: rgb(106, 60, 177);
     margin: auto;
     padding-left: 0;
-  
+
    /*  margin-left: -45px; */
- 
+
 
   }
 
@@ -28,23 +28,21 @@
     position: absolute;
     text-align: center !important;
   } */
-  
+
   .example-sidenav-container {
     /* When the sidenav is not fixed, stretch the sidenav container to fill the available space. This
        causes `<mat-sidenav-content>` to act as our scrolling element for desktop layouts. */
     flex: 1;
   }
-  
+
   .example-is-mobile .example-sidenav-container {
     /* When the sidenav is fixed, don't constrain the height of the sidenav container. This allows the
        `<body>` to be our scrolling element for mobile layouts. */
     flex: 1 0 auto;
   }
 
-  .evidence-container{
-    padding-left: 10px;
-    top: 350px;
-    position: relative;
+.evidence-container{
+
 }
 
 .top-toolbar{
@@ -55,11 +53,10 @@
 }
 
 .menu-bar{
-    position: relative;
     color: rgb(106, 60, 177);
     background-color: white;
     border-bottom: 1px solid;
-    height: 40px;
+    height: auto;
 }
 
 .thirdnav.mat-toolbar.mat-toolbar-single-row{
@@ -137,7 +134,7 @@
     width: 160px;
     font-size: 14px;
     margin-left: 20px;
-    
+
 }
 
 .text_input.mat-input-element.mat-form-field-autofill-control{
@@ -200,4 +197,3 @@
     text-align: right;
     border-top: 1px white solid;
 }*/
-

@@ -1,11 +1,3 @@
-/*.example-container {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-}*/
-
 .example-is-mobile .example-toolbar {
   position: fixed;
   /* Make sure the toolbar will stay on top of the content as it scrolls past. */
@@ -41,12 +33,6 @@ h1.example-app-name {
   flex: 1 0 auto;
 }
 
-.evidence-container{
-  padding-left: 10px;
-  top: 350px;
-  position: relative;
-}
-
 .top-toolbar{
   top: 0;
   border-bottom-color: rgb(106, 60, 177);
@@ -55,11 +41,11 @@ h1.example-app-name {
 }
 
 .menu-bar{
-  position: relative;
   color: rgb(106, 60, 177);
   background-color: white;
   border-bottom: 1px solid;
-  height: 40px;
+  height: 320px;
+  width: 100%;
 }
 
 .thirdnav.mat-toolbar.mat-toolbar-single-row{
