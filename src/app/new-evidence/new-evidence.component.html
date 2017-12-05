@@ -1,49 +1,78 @@
-<h2>New Evidence</h2>
-
-<div class="">
-  <div>
-    <input type="date" [(ngModel)]="newEvidence.when" name="when" placeholder="When did it happen?">
-    <input type="text" [(ngModel)]="newEvidence.where" name="where" placeholder="Where did it happen?">
-  <div>
-
+<mat-toolbar class="example-toolbar menu-bar">
   <div class="">
-    <label class="btn btn-default">Image icon<input type="file"
-      (change)="selectFile($event, '/images')" name="evidence_image">
-    </label>
-    <br>
-    <br>
-    
-    <label class="btn btn-default">Audio icon<input type="file"
-      (change)="selectFile($event, '/audio')" [(ngModel)]="newEvidence.audio" name="evidence_audio">
-    </label>
-    <br>
-    <br>
-    <!-- <label class="btn btn-default">Document icon<input type="file"
-      (change)="selectFile($event, '/documents')" [(ngModel)]="newEvidence.doc" name="evidence_doc">
-    </label>
-    <br>
-    <br> -->
-    <label class="btn btn-default">Video icon<input type="file"
-      (change)="selectFile($event, '/video')" [(ngModel)]="newEvidence.video" name="evidence_video">
-    </label>
+    <div>
+
+      <mat-form-field class="date_input example-full-width center">
+          <input class="text_input" matInput [matDatepickerFilter]="myFilter" [matDatepicker]="picker" type="date" [(ngModel)]="newEvidence.when" name="when" placeholder="When did it happen?">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+
+      <div class="loc_class">
+        <mat-form-field class="location_input" floatPlaceholder="never">
+            <textarea matInput class="text_input" [(ngModel)]="newEvidence.where" name="where" placeholder="Where did it happen?"></textarea>
+        </mat-form-field>
+        <mat-icon class="loc_icon"> Add location </mat-icon>
+      </div>
+    </div>
+
+    <mat-toolbar class="thirdnav">
+        <div class="button-row">
+          <button mat-button  (click)="audioFileInput.click()"><mat-icon>mic</mat-icon></button> <input hidden type="file" #audioFileInput accept="audio/*" (change)="selectFile($event, '/audio')"/>
+        </div>
+
+        <div class="button-row">
+          <button mat-button (click)="cameraFileInput.click()"><mat-icon>photo_camera</mat-icon></button> <input hidden type="file" #cameraFileInput accept="image/*" (change)="selectFile($event, '/images')"/>
+        </div>
+
+        <div class="button-row">
+          <button mat-button (click)="galleryFileInput.click()"><mat-icon>photo_size_select_actual</mat-icon></button> <input hidden type="file" accept="image/*" #galleryFileInput (change)="selectFile($event, '/images')"/>
+        </div>
+
+        <div class="button-row">
+          <button mat-button color="accent" (click)="videoFileInput.click()"><mat-icon>ondemand_video</mat-icon></button> <input hidden type="file" accept="video/*" #videoFileInput (change)="selectFile($event, '/video')"/>
+        </div>
+    </mat-toolbar>
+
+    <div>
+      <textarea [(ngModel)]="newEvidence.what" name="what" placeholder="What happened?..."></textarea>
+    </div>
+
+    <div class="entry_form">
+        <mat-form-field class="form_field">
+                <textarea matInput  #input maxlength="200" class="form_text" placeholder="What happened?" matTextareaAutosize matAutosizeMinRows="2"
+                            matAutosizeMaxRows="5"></textarea>
+                <mat-hint align="end">{{input.value?.length || 0}}/200</mat-hint>
+             </mat-form-field>
+
+        <mat-form-field class="wit_field">
+            <textarea matInput placeholder="Enter names of witnesses (if any)" matTextareaAutosize matAutosizeMinRows="2"
+                        matAutosizeMaxRows="5"></textarea>
+         </mat-form-field>
+         <div>
+            <input type="submit" class= "submit_button btn mat-raised-button" value="DONE" (click)="addNewEvidence()" mat-align="center">
+        </div>
+
+        <div class="">
+          <button class="btn btn-default" style="color: red"><input type="file" style="display: none"
+            (change)="selectFile($event, '/images')" name="evidence_image">
+          </button>
+        </div>
+    </div>
+
   </div>
 
-  <div>
-    <textarea [(ngModel)]="newEvidence.what" name="what" placeholder="What happened?..."></textarea>
-  </div>
-
-  <div class="">
-    <input type="submit" class= "btn mat-raised-button" value="DONE" (click)="addNewEvidence()">
-  </div>
-</div>
+</mat-toolbar>
 
 <button (click)="toggleViewLog()">
   <div *ngIf="!viewLog">{{ viewLogMessage }}</div>
   <div *ngIf="viewLog">{{ hideLogMessage }}</div>
 </button>
 
+<!-- TODO: Put this in the Evidence Logs page -->
+<!-- <evidence-log></evidence-log> -->
+
 <div *ngIf="viewLog">
-  <h1>Your previous entries</h1>
   <div *ngFor="let evidence of evidences | async">
     <div *ngIf="evidence.display">
       {{ evidence.when }} at {{ evidence.where }}
