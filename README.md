@@ -1,6 +1,16 @@
-# MEAN4+ Starter
+# OCDV Frontend
 
-This project is based on the tutorial from [Coursetro.com](https://coursetro.com), located here:
-[Setting up an Angular 4 MEAN Stack (Tutorial)](https://coursetro.com/posts/code/84/Setting-up-an-Angular-4-MEAN-Stack-(Tutorial))
+## Make a folder 
+$ mkdir OCDV_frontend
 
-Good luck!# frontend
+## Clone this repository
+$ git clone https://github.com/sindhu732/OCDV_evidence_log.git && cd OCDV_evidence_log
+
+## Install Angular Command Line Interface globally
+$ npm install -g @angular/cli@latest
+
+## Install the node modules as specified in package.json
+$ npm install
+
+## Build and serve the project at localhost:4200
+$ ng serve
