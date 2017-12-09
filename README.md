@@ -14,3 +14,9 @@ $ npm install
 
 ## Build and serve the project at localhost:4200
 $ ng serve
+
+## Build the project in production mode and confirm that there are files in "dist" folder
+$ ng build --prod
+
+## Deploy to firebase 
+$ firebase deploy
