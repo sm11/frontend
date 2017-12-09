@@ -2,7 +2,7 @@
     <mat-toolbar>
       <div class="button-row">
         <mat-form-field class="date_input example-full-width center">
-            <!-- <input class="text_input" matInput [matDatepickerFilter]="myFilter" [matDatepicker]="picker" type="date" [(ngModel)]="newEvidence.when" name="when" placeholder="When did it happen?"> -->
+            <input class="text_input" matInput [matDatepickerFilter]="myFilter" [matDatepicker]="picker" type="date" [(ngModel)]="newEvidence.when" name="when" placeholder="When did it happen?">
             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
             <mat-datepicker #picker></mat-datepicker>
         </mat-form-field>
