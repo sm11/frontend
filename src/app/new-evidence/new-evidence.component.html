@@ -34,6 +34,16 @@
         </div>
     </mat-toolbar>
 
+    <mat-toolbar *ngIf="newEvidence.image || newEvidence.audio || newEvidence.video">
+      <img src="{{ newEvidence.image }}" alt="" height="40" width="40" *ngIf="newEvidence.image">
+      <audio *ngIf="newEvidence.audio" controls>
+        <source src="{{ newEvidence.audio }}" type="audio/mp3">
+      </audio>
+      <video *ngIf="newEvidence.video" width="50" height="50" controls>
+        <source src="{{ newEvidence.video }}" type="video/mp4">
+      </video>
+    </mat-toolbar>
+
     <div class="entry_form">
         <mat-form-field class="form_field">
           <textarea matInput [(ngModel)]="newEvidence.what" name="what" #input maxlength="200" class="form_text" placeholder="What happened?" matTextareaAutosize matAutosizeMinRows="2"
@@ -55,7 +65,7 @@
 <div>
   <button mat-button (click)="toggleViewLog()">
     <div *ngIf="!viewLog"><mat-icon>chevron_right</mat-icon>{{ viewLogMessage }}</div>
-    <div *ngIf="viewLog"><mat-icon>keyboard_arrow_down</mat-icon>{{ hideLogMessage }}</div>
+    <div *ngIf="viewLog"><<mat-icon>keyboard_arrow_down</mat-icon>{{ hideLogMessage }}</div>
   </button>
 </div>
 

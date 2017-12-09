@@ -30,4 +30,13 @@ export class AppComponent {
   ngOnDestroy(): void {
     this.mobileQuery.removeListener(this._mobileQueryListener);
   }
+
+  logoutAndEscape() {
+    this.logout();
+    location.replace("https://www.yahoo.com/news/");
+  }
+
+  logout() {
+    console.log("Logout user and delete user data on device");
+  }
 }

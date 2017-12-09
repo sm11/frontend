@@ -6,7 +6,7 @@
         <h1 class="example-app-name">
             {{title | uppercase }}
         </h1>
-        <button mat-icon-button  class="exit">
+        <button mat-icon-button class="exit" (click)="logoutAndEscape()">
             <span>EXIT</span>
             <mat-icon> exit_to_app </mat-icon>
         </button>
@@ -31,7 +31,7 @@
 
         <div class="evidence-container">
             <new-evidence></new-evidence>
-        </div> 
+        </div>
 
       </mat-sidenav-content>
 
