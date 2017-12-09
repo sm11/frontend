@@ -6,11 +6,11 @@
 export const environment = {
   production: false,
   firebase: {
-    apiKey: "AIzaSyCvA4PBqwzdmmt_5vSshi5DJVM3Wo6NmMc",
-    authDomain: "ocdv-af480.firebaseapp.com",
-    databaseURL: "https://ocdv-af480.firebaseio.com",
-    projectId: "ocdv-af480",
-    storageBucket: "ocdv-af480.appspot.com",
-    messagingSenderId: "168893676079"
+    apiKey: "AIzaSyBIp5q_jvp1EZfULmOJxNuKtJ4x3YwKP78",
+    authDomain: "ocdv-hope.firebaseapp.com",
+    databaseURL: "https://ocdv-hope.firebaseio.com",
+    projectId: "ocdv-hope",
+    storageBucket: "ocdv-hope.appspot.com",
+    messagingSenderId: "352587595331"
   },
 };
