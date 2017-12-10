@@ -206,7 +206,6 @@ h1.example-app-name {
 }
 
 .mat-card{
-  font-size: 5pt;
   padding: 10px;
   border: rgb(106, 60, 177) solid 1px;
   margin: 15px;
@@ -217,3 +216,9 @@ h1.example-app-name {
        -5px 5px #77aaff;
 }
 
+.mat-card-title{
+  font-size: 11pt;
+  color: #333;
+  font-family: Lato, Arial, sans-serif;
+
+}
