@@ -2,18 +2,26 @@
     <mat-toolbar>
       <div class="button-row">
         <mat-form-field class="date_input example-full-width center">
+            <mat-icon class="cal_icon">event</mat-icon>
             <input class="text_input" matInput [matDatepicker]="picker" type="date" [(ngModel)]="newEvidence.when" name="when" placeholder="When did it happen?">
-            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <!-- <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle> -->
             <mat-datepicker #picker></mat-datepicker>
         </mat-form-field>
       </div>
 
       <div class="button-row">
-        <mat-form-field class="location_input" floatPlaceholder="never">
-            <textarea matInput class="text_input" [(ngModel)]="newEvidence.where" name="where" placeholder="Where did it happen?"></textarea>
+        <form class="center location_input">
+          <mat-form-field class="text_input location_input loc_class" >
+              <mat-select class="text_input"  placeholder="Where did it happen?">
+                  <mat-option value="home"> Home</mat-option>
+                  <mat-option value="work">Work</mat-option>
+                  <mat-option value="online">Online</mat-option>
+                  <mat-option value="other">Other</mat-option>                        
+            </mat-select>
+            <!-- <mat-icon class="loc_icon"> add_location </mat-icon>   -->
         </mat-form-field>
-        <mat-icon>location_on</mat-icon>
-      </div>
+      </form>
+    </div>
     </mat-toolbar>
 
     <mat-toolbar class="thirdnav">
@@ -72,9 +80,9 @@
 <!-- TODO: Put this in the Evidence Logs page -->
 <!-- <evidence-log></evidence-log> -->
 
-<div *ngIf="viewLog">
+<div class="view_log" *ngIf="viewLog">
   <div *ngFor="let evidence of evidences | async">
-    <mat-card *ngIf="evidence.display">
+    <mat-card class = "view_evidence" *ngIf="evidence.display">
       <mat-card-subtitle>{{ evidence.when | date }} at {{ evidence.where }}</mat-card-subtitle>
       <mat-card-title>{{ evidence.what }}</mat-card-title>
       <!-- <button type="button" (click)="deleteEvidence(evidence)" name="button">X</button> -->

@@ -10,19 +10,20 @@
     position: fixed;
     /* Make sure the toolbar will stay on top of the content as it scrolls past. */
     z-index: 2;
-    background-color: white;
-    border-bottom-color: rgb(106, 60, 177);
+    background-color: rgb(106, 60, 177);;
+    border-bottom-color:white;
   }
 
   h1.example-app-name {
-    color: rgb(106, 60, 177);
+    color: white;
     margin: auto;
-    padding-left: 0;
+    padding-right: 40px;
+  }
+
 
    /*  margin-left: -45px; */
 
 
-  }
 
 /* .appheader > ::ng-deep figure{
     position: absolute;
@@ -115,8 +116,8 @@
 }
 
 .burg{
-    margin-right: -30px;
-    color: rgb(106, 60, 177);
+    color: white;
+    font-size: 14px;
 }
 
 
